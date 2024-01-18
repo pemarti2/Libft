@@ -1,0 +1,9 @@
+# Ignore compiled
+*.out
+*.out.*
+# Ignore system files
+.DS_Store
+# Ignore .temporal
+*.swp
+#Ignore main.c
+main.c
