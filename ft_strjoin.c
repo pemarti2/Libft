@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pemarti2 <pemarti2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 17:46:13 by pemarti2          #+#    #+#             */
-/*   Updated: 2024/01/19 15:04:53 by pemarti2         ###   ########.fr       */
+/*   Created: 2024/01/19 11:02:04 by pemarti2          #+#    #+#             */
+/*   Updated: 2024/01/19 15:14:45 by pemarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, char *src, size_t dstsize)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	size_t response;
-	size_t dst_len;
+	size_t	total1;
+	size_t	total2;
+	char	*response;
 
-	dst_len = ft_strlen(dst);
-	response = dst_len + ft_strlen(src); 
-	while (dst_len - 1 != dstsize && *src)
-		dst[dst_len++] = *src++;
-	dst[++dst_len] = '\0';
+	total1 = ft_strlen(s1); 
+	total2 = ft_strlen(s2);
+	response = malloc(total1 + total2 + 1);
+	ft_strlcpy(response,(char *) s1, total1 + 1);
+	ft_strlcat(&response[total1],(char *) s2, total2 + 1);
 	return (response);
 }
