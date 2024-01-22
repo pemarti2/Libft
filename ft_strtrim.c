@@ -10,4 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+char *ft_strtrim(char const *s1, char const *set)
+{
+	const char	*end;
+	char		*response;
+	char		*presponse;
+	size_t		responseLen;
+
+	responseLen = ft_strlen(s1) - 1;
+	end = &s1[responseLen];
+	while(ft_strchr(set, *s1))
+		s1++;
+	while (ft_strchr(set, *end))
+		end--;
+	responseLen = end - s1 + 1;
+	response = (char *) malloc(sizeof(char) * responseLen);
+	if (response == NULL)
+     	   return '\0';
+	presponse = response;
+	while(s1 <= end)
+		*presponse++ = *s1++;
+	*presponse = '\0';
+	return (response);
+}
