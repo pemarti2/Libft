@@ -6,4 +6,4 @@
 # Ignore .temporal
 *.swp
 #Ignore main.c
-main.c
+#main.c
