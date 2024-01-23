@@ -6,10 +6,15 @@ char apiWhatever (unsigned int index, char c)
 {
 	return c + index;
 }
+void whatever2 (unsigned int index, char *str)
+{
+	printf("INDEX: %d\nCHAR_VALUE: %c\n", index, *str);
+}
 
 int main (int argc, char *argv[])
 {
-	
+	char	*str = argv[1];
+	ft_striteri(str, whatever2);
 	/*
 	 * test ft_strmapi	
 	char	*str = argv[1];
