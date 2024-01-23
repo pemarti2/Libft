@@ -48,7 +48,6 @@ char **ft_split(char const *s, char c)
 		*pms = (char *) malloc(sizeof(char) * nsubs);
 		if (*pms == NULL)
 		{
-    		// If malloc return null free all
     			while (pms > ms)
         			free(*--pms);
     			free(ms);
