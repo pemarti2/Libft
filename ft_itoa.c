@@ -32,20 +32,19 @@ char *ft_itoa(int n)
 	int	countn;
 
 	countn = ft_countd(n);
+
+	if (countn != 0 && n < 0)
+		countn++;
+	response = (char *) malloc(sizeof(char *) * (countn + 1));
+	if (!response)
+		return (NULL);
 	if (countn == 0)
 	{
-		response = (char *) malloc(sizeof(char *) * 2);
-		if (!response)
-			return (NULL);
 		response[0] = '0';
+		response[1] = '\0';
 	}
 	else
 	{
-		if (n < 0)
-			countn++;	
-		response = (char *) malloc(sizeof(char) * (countn + 1));
-		if (!response)
-			return NULL;
 		presponse = response;
 		if (n < 0)
 			*presponse = '-';
