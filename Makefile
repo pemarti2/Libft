@@ -21,7 +21,7 @@ libft.a: $(OBJECTS)
 	ar rcs libft.a $(OBJECTS)
 
 test: main.o libft.a
-	$(CC) $(CFLAGS) main.o -o test
+	$(CC) $(CFLAGS) main.o -o test -L. -lft
 
 %.o : %.c Makefile libft.h
 	$(CC) -c $(CFLAGS) $< -o $@

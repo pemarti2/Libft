@@ -14,51 +14,52 @@
 
 size_t	ft_countw(char const *s, char c)
 {
-	const char      *ps;
-        size_t          nsubs;
+	const char	*ps;
+	size_t		nsubs;
 
-        ps = s;
-        nsubs = 1;
-        while (*ps)
-        {
-                if (*ps == c)
-                        nsubs++;
-                ps++;
-        }
+	ps = s;
+	nsubs = 1;
+	while (*ps)
+	{
+		if (*ps++ == c)
+			nsubs++;
+	}
 	return (nsubs);
 }
 
-char **ft_split(char const *s, char c)
+int	ft_free_null(char **pms, char **ms)
+{
+	if (*pms == NULL)
+	{
+		while (pms > ms)
+			free (*--pms);
+		free (ms);
+		return (0);
+	}
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	const char	*ps;
 	char		**ms;
 	char		**pms;
-	size_t		nsubs;
 
 	ps = s;
-	nsubs = ft_countw(s, c) + 1;
-	ms = (char **) malloc(sizeof(char *) * nsubs);
+	ms = (char **) malloc(sizeof(char *) * (ft_countw(s, c) + 1));
 	pms = ms;
 	while (*s)
 	{
 		ps = s;
 		while (*ps != c)
 			ps++;
-		nsubs = ps - s;
-		*pms = (char *) malloc(sizeof(char) * nsubs);
-		if (*pms == NULL)
-		{
-    			while (pms > ms)
-        			free(*--pms);
-    			free(ms);
-    			return NULL;
-		}
-		ft_strlcpy(*pms, s, nsubs + 1);
-		s += nsubs;
-		while (*s == c)
-			s++;
+		*pms = (char *) malloc(sizeof(char) * (ps - s));
+		if (ft_free_null(pms, ms) == 0)
+			return (NULL);
+		ft_strlcpy(*pms, s, (ps - s) + 1);
+		s += (ps - s) + 1;
 		pms++;
 	}
 	*pms = NULL;
-	return (ms);	
+	return (ms);
 }
