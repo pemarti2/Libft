@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <unistd.h>
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char *ps;
+	char	*ps;
 
 	ps = s;
 	while (*ps)

@@ -12,18 +12,18 @@
 
 #include <stddef.h>
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	char unsigned		*dstCpy;
-	const unsigned char	*srcCpy;
+	size_t				i;
+	char unsigned		*dst_cpy;
+	const unsigned char	*src_cpy;
 
-	dstCpy = (unsigned char *)dst;
-	srcCpy = (const unsigned char *)src;
+	dst_cpy = (unsigned char *) dst;
+	src_cpy = (const unsigned char *) src;
 	i = 0;
-	while ( dstCpy && len != i)
+	while (dst_cpy && len != i)
 	{
-		dstCpy[i] = srcCpy[i];
+		dst_cpy[i] = src_cpy[i];
 		i++;
 	}
 	return (dst);

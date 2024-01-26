@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	int	response;
 
@@ -19,6 +19,5 @@ int ft_isalpha(int c)
 	{
 		response = 1;
 	}
-
 	return (response);
 }

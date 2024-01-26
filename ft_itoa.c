@@ -12,11 +12,13 @@
 
 #include "libft.h"
 
-int  ft_countd(int n)
+int	ft_countd(int n)
 {
 	int	response;
 
 	response = 0;
+	if (n < 0)
+		response++;
 	while (n != 0)
 	{
 		n /= 10;
@@ -25,40 +27,37 @@ int  ft_countd(int n)
 	return (response);
 }
 
-char *ft_itoa(int n)
+int	ft_modulus(int n)
+{
+	if (n < 0)
+		n *= -1;
+	return (n);
+}
+
+char	*ft_itoa(int n)
 {
 	char	*response;
 	char	*presponse;
-	int	countn;
+	int		countn;
 
 	countn = ft_countd(n);
-
-	if (countn != 0 && n < 0)
-		countn++;
 	response = (char *) malloc(sizeof(char *) * (countn + 1));
 	if (!response)
 		return (NULL);
 	if (countn == 0)
+		return ("0\0");
+	presponse = response;
+	if (n < 0)
+		*presponse = '-';
+	presponse += countn + 1;
+	*presponse-- = '\0';
+	while (presponse > response)
 	{
-		response[0] = '0';
-		response[1] = '\0';
-	}
-	else
-	{
-		presponse = response;
-		if (n < 0)
-			*presponse = '-';
-		presponse += countn + 1;
-		*presponse-- = '\0'; 
-		while (presponse > response)
-		{
-			countn = n % 10;
-			n /= 10;
-			if (countn < 0)
-				countn *= - 1;
-			if (*--presponse != '-')
-				*presponse = countn + 48;
-		}
+		countn = n % 10;
+		n /= 10;
+		countn = ft_modulus(countn);
+		if (*--presponse != '-')
+			*presponse = countn + 48;
 	}
 	return (response);
 }

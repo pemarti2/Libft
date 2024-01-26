@@ -9,6 +9,7 @@
 #    Updated: 2024/01/25 16:19:52 by pemarti2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME = libft
 CFLAGS := -Wall -Werror -Wextra
 CC := gcc
 SRCS := $(wildcard *.c)
