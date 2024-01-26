@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <unistd.h>
 
-void ft_putchar_fd(char s, int fd)
+void	ft_putchar_fd(char s, int fd)
 {
-	write(fd, &s, 1);		
+	write (fd, &s, 1);		
 }

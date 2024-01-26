@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	total1;
 	size_t	total2;
 	char	*response;
 
-	total1 = ft_strlen(s1); 
+	total1 = ft_strlen(s1);
 	total2 = ft_strlen(s2);
 	response = malloc(total1 + total2 + 1);
-	ft_strlcpy(response,(char *) s1, total1 + 1);
-	ft_strlcat(&response[total1],(char *) s2, total2 + 1);
+	ft_strlcpy(response, (char *) s1, total1 + 1);
+	ft_strlcat(&response[total1], (char *) s2, total2 + 1);
 	return (response);
 }
