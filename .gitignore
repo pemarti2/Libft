@@ -5,5 +5,8 @@
 .DS_Store
 # Ignore .temporal
 *.swp
+*.o
+*.txt
+*.a
 #Ignore main.c
 #main.c
