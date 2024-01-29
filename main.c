@@ -1,24 +1,18 @@
-#include "libft.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "libft.h"
+#include <unistd.h>
+#include <fcntl.h> //open function
 
-int main (int argc, char **argv)
+int main (int argc, char *argv[])
 {
-	if (argc > 1)
-	{
-		const char *str1 = argv[1];
-		char separata = argv[2][0];
-		char **response = ft_split(str1, separata);
-		char **presponse = response;
-		char **fr = response;
-		int	i = 0;
-		while (*presponse)
-		{
-			printf("Cadena %d: %s\n", i++, *presponse++);
-		}
+	if (argc == 1)
+		return (0);
+	char	*test = argv[1];
+	int 	fd = open ("test.txt", O_CREAT | O_RDWR, S_IRWXU);
+	ft_putnbr_fd(ft_atoi(test), fd);
+	close(fd);
 
-		while (*fr)
-			free(*fr++);
-		free(response);
-	}
 	return (0);
 }
