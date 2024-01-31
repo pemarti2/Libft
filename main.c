@@ -4,7 +4,7 @@
 #include "libft.h"
 #include <unistd.h>
 #include <fcntl.h> //open function
-
+/*
 int main(int argc, char *argv[]) {
 	if (argc <3)
 		return (1);
@@ -34,3 +34,26 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+*/
+
+int main() {
+    char *src = "bonjourno";
+    int size = 2;
+    int character_to_find = 'n';
+
+    // Buscamos el carácter en la memoria usando memchr
+    void *result_memchr = memchr(src, character_to_find, size);
+    // Buscamos el carácter en la memoria usando ft_memchr
+    void *result_ft_memchr = ft_memchr(src, character_to_find, size);
+
+    // Comparamos los resultados
+    if (result_memchr == result_ft_memchr) {
+        printf("Las funciones memchr y ft_memchr devolvieron el mismo resultado.\n");
+    } else {
+        printf("Las funciones memchr y ft_memchr devolvieron resultados diferentes.\n");
+    }
+
+    return 0;
+}
+
