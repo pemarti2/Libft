@@ -29,7 +29,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		response = us1[i] - us2[i];
 		if (response != 0)
-			break ;	
+			break ;
 		i++;
 	}
 	response = us1[i] - us2[i];

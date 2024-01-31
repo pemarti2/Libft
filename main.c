@@ -37,23 +37,23 @@ int main(int argc, char *argv[]) {
 
 */
 
-int main() {
-    char *src = "bonjourno";
-    int size = 2;
-    int character_to_find = 'n';
+int main(int argc, char **argv) {
+	if (argc == 1)
+	{
+		printf("Lacks of arguments need 1 or more");
+		return (1);
+	}
+	char	*str;
+	char	str2[100];
 
-    // Buscamos el carácter en la memoria usando memchr
-    void *result_memchr = memchr(src, character_to_find, size);
-    // Buscamos el carácter en la memoria usando ft_memchr
-    void *result_ft_memchr = ft_memchr(src, character_to_find, size);
-
-    // Comparamos los resultados
-    if (result_memchr == result_ft_memchr) {
-        printf("Las funciones memchr y ft_memchr devolvieron el mismo resultado.\n");
-    } else {
-        printf("Las funciones memchr y ft_memchr devolvieron resultados diferentes.\n");
-    }
-
-    return 0;
+	argv++;
+	while (*argv)
+	{
+		str = *argv++;
+		strcpy(str2, str);
+		printf ("THE VALUE OF FT: %d\n", ft_atoi(str));
+		printf ("THE VALUE OF ORIGINAL: %d\n", atoi(str2));
+	}
+	return 0;
 }
 
