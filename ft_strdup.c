@@ -12,13 +12,18 @@
 
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-	int		size;
+	size_t	size;
 	char	*response;
 
-	size = ft_strlen(s1);
-	response = (char *) malloc(size);
+	size = ft_strlen(s1) + 1;
+	response = (char *) malloc((size) * sizeof(char));
+	if (!response)
+	{
+		free(response);
+		return (NULL);
+	}
 	ft_strlcpy(response, s1, size);
 	return (response);
 }

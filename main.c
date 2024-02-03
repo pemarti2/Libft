@@ -44,8 +44,9 @@ int main(int argc, char **argv) {
 		return (1);
 	}
 	char	*str;
-	char	str2[100];
-
+	char	*str2;
+	int		start,end;
+	/*
 	argv++;
 	while (*argv)
 	{
@@ -54,6 +55,13 @@ int main(int argc, char **argv) {
 		printf ("THE VALUE OF FT: %d\n", ft_atoi(str));
 		printf ("THE VALUE OF ORIGINAL: %d\n", atoi(str2));
 	}
+	*/
+	str = argv[1];
+	start = ft_atoi(argv[2]);
+	end = ft_atoi(argv[3]);
+	str2 = ft_substr(str, start, end);
+	printf ("THE STR: %s\n", str);
+	printf ("START: %d END %d THE STRDUP: %s\n", start, end, str2);
 	return 0;
 }
 

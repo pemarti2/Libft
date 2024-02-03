@@ -17,6 +17,11 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*response;
 
 	response = malloc(count * size);
+	if (!response)
+	{
+		free(response);
+		return (NULL);
+	}
 	ft_memset(response, 0, count * size);
 	return (response);
 }
