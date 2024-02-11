@@ -49,7 +49,6 @@ char	**ft_split(char const *s, char c)
 	char		**matrix_s;
 	char		**pmatrix_s;
 
-	ps = s;
 	matrix_s = (char **) malloc(sizeof(char *) * (ft_countw(s, c) + 1));
 	if (!matrix_s || !s)
 		return (NULL);
@@ -58,15 +57,16 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c)
 			s++;
+		if (!*s)
+			break ;
 		ps = s;
 		while (*ps && *ps != c)
 			ps++;
 		*pmatrix_s = (char *) malloc(sizeof(char) * ((ps - s) + 1));
 		if (ft_free_null(pmatrix_s, matrix_s) == 0)
 			return (NULL);
-		ft_strlcpy(*pmatrix_s, s, (ps - s) + 1);
+		ft_strlcpy(*pmatrix_s++, s, (ps - s) + 1);
 		s = ps;
-		pmatrix_s++;
 	}
 	*pmatrix_s = NULL;
 	return (matrix_s);

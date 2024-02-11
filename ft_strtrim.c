@@ -19,14 +19,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char		*presponse;
 	size_t		response_l;
 
-	response_l = ft_strlen(s1) - 1;
+	response_l = ft_strlen(s1);
 	end = &s1[response_l];
-	while (ft_strchr(set, *s1))
+	while (*s1 && ft_strchr(set, *s1))
 		s1++;
-	while (ft_strchr(set, *end))
+	while (end >= s1 && ft_strchr(set, *end))
 		end--;
 	response_l = end - s1 + 1;
-	response = (char *) malloc(sizeof(char) * response_l);
+	response = (char *) malloc(sizeof(char) * (response_l + 1));
 	if (response == NULL)
 		return (NULL);
 	presponse = response;

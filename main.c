@@ -85,9 +85,11 @@ int main(int argc, char **argv) {
 		write(0, "\n", 1);
 		ft_putnbr_fd(-1, 0);
 		write(0, "\n", 1);
-		
 	}
-
+	else if (strcmp(argv[1], "ft_substr") == 0)
+	{
+		ft_print_result(ft_substr("", 1, 1));
+	}
     return 0;
 }
 
