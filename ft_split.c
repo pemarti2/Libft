@@ -18,22 +18,26 @@ size_t	ft_countw(char const *s, char c)
 	size_t		nsubs;
 
 	ps = s;
-	nsubs = 1;
+	nsubs = 0;
 	while (*ps)
 	{
-		if (*ps++ == c)
+		while (*ps == c)
+			ps++;
+		if (*ps)
 			nsubs++;
+		while (*ps && *ps != c)
+			ps++;
 	}
 	return (nsubs);
 }
 
-int	ft_free_null(char **pms, char **ms)
+int	ft_free_null(char **pmatrix_s, char **matrix_s)
 {
-	if (*pms == NULL)
+	if (*pmatrix_s == NULL)
 	{
-		while (pms > ms)
-			free (*--pms);
-		free (ms);
+		while (pmatrix_s > matrix_s)
+			free (*--pmatrix_s);
+		free (matrix_s);
 		return (0);
 	}
 	return (1);
@@ -42,24 +46,28 @@ int	ft_free_null(char **pms, char **ms)
 char	**ft_split(char const *s, char c)
 {
 	const char	*ps;
-	char		**ms;
-	char		**pms;
+	char		**matrix_s;
+	char		**pmatrix_s;
 
 	ps = s;
-	ms = (char **) malloc(sizeof(char *) * (ft_countw(s, c) + 1));
-	pms = ms;
+	matrix_s = (char **) malloc(sizeof(char *) * (ft_countw(s, c) + 1));
+	if (!matrix_s || !s)
+		return (NULL);
+	pmatrix_s = matrix_s;
 	while (*s)
 	{
+		while (*s == c)
+			s++;
 		ps = s;
-		while (*ps != c)
+		while (*ps && *ps != c)
 			ps++;
-		*pms = (char *) malloc(sizeof(char) * (ps - s));
-		if (ft_free_null(pms, ms) == 0)
+		*pmatrix_s = (char *) malloc(sizeof(char) * ((ps - s) + 1));
+		if (ft_free_null(pmatrix_s, matrix_s) == 0)
 			return (NULL);
-		ft_strlcpy(*pms, s, (ps - s) + 1);
-		s += (ps - s) + 1;
-		pms++;
+		ft_strlcpy(*pmatrix_s, s, (ps - s) + 1);
+		s = ps;
+		pmatrix_s++;
 	}
-	*pms = NULL;
-	return (ms);
+	*pmatrix_s = NULL;
+	return (matrix_s);
 }

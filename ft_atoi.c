@@ -20,7 +20,7 @@ int	ft_atoi(const char *str)
 	response = 0;
 	temp = 0;
 	while (*str && ft_isalpha(*str) != 1
-		&& (*str == 43 || *str == 45 || *str == 32))
+		&& (*str == 43 || *str == 45 || *str == 32 || (*str >= 9 && *str < 14)))
 	{
 		if (*str == '-')
 			temp--;

@@ -41,7 +41,7 @@ char	*ft_itoa(int n)
 	int		countn;
 
 	countn = ft_countd(n);
-	response = (char *) malloc(sizeof(char *) * (countn + 1));
+	response = (char *) malloc(sizeof(char) * (countn + 1));
 	if (!response)
 		return (NULL);
 	if (countn == 0)
