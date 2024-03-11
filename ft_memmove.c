@@ -6,7 +6,7 @@
 /*   By: pemarti2 <pemarti2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:03:51 by pemarti2          #+#    #+#             */
-/*   Updated: 2024/01/29 11:11:02 by pemarti2         ###   ########.fr       */
+/*   Updated: 2024/02/14 20:16:51 by pemarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	dst_cpy = (unsigned char *) dst;
 	src_cpy = (const unsigned char *) src;
 	i = 0;
-	if (!dst || !src)
+	if (!dst && !src)
 		return (NULL);
 	if (dst < src)
 	{

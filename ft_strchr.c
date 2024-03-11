@@ -6,7 +6,7 @@
 /*   By: pemarti2 <pemarti2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:42:11 by pemarti2          #+#    #+#             */
-/*   Updated: 2024/01/16 14:16:45 by pemarti2         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:25:21 by pemarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s)
-		return (NULL);
 	while (*s)
 	{
 		if (*s == (char)c)

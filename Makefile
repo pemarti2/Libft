@@ -6,11 +6,11 @@
 #    By: pemarti2 <pemarti2@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 12:50:40 by pemarti2          #+#    #+#              #
-#    Updated: 2024/01/29 10:38:42 by pemarti2         ###   ########.fr        #
+#    Updated: 2024/02/14 18:49:46 by pemarti2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -g#For debugging
 CC := gcc
 SRCS := \
 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
@@ -36,6 +36,10 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
+
+test: all
+	cc main.c $(CFLAGS) $(NAME) -o test
+	./test
 
 .PHONY:
 	all clean fclean re
